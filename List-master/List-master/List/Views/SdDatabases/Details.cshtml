@@ -1,0 +1,60 @@
+﻿@model List.Models.SdDatabase
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h4>SdDatabase Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Ad</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Ad)</dd>
+            <dt class="col-sm-2">Soyad</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Soyad)</dd>
+            <dt class="col-sm-2">Bolum</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Bolum)</dd>
+            <dt class="col-sm-2">DagitimId</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.DagitimId)</dd>
+            <dt class="col-sm-2">EkleyenKisi</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.EkleyenKisi)</dd>
+            <dt class="col-sm-2">EklendigiTarih</dt>
+            <dd class="col-sm-10">
+                @if (Model.EklendigiTarih.HasValue)
+                {
+                    @Model.EklendigiTarih.Value.ToString("yyyy-MM-dd")
+                }
+                else
+                {
+                    @Html.Display("Null")
+                }
+            </dd>
+            <dt class="col-sm-2">Flos</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Flos)</dd>
+            <dt class="col-sm-2">VerilisTarih</dt>
+            <dd class="col-sm-10">
+                @if (Model.VerilisTarih.HasValue)
+                {
+                    @Model.VerilisTarih.Value.ToString("yyyy-MM-dd")
+                }
+                else
+                {
+                    @Html.Display("Null")
+                }
+            </dd>
+        </dl>
+    </div>
+    <div class="container">
+        <a asp-action="Edit" asp-route-id="@Model?.SicilNo" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js for dropdowns (if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-undefined" crossorigin="anonymous"></script>
+</body>
+</html>
